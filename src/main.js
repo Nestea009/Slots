@@ -1,7 +1,6 @@
 'use strict';
 
 function App() {
-  let Money = 5000
 
   function PickRandom(slot){
     let RNG = Math.floor(Math.random() * 100)
@@ -43,9 +42,9 @@ function App() {
     }
   }
 
-  function Roll(Money){
+  function Roll(){
 
-    Money -= 100
+    Money -= 100;
 
     let slot1 = document.getElementById("slot1") 
     let slot2 = document.getElementById("slot2")
@@ -69,39 +68,135 @@ function App() {
       PickRandom(slots[i])
     }
 
-    //console.log(slot1.src)
-
-    Analyze(slots, Money);
+    Analyze(slots);
   }
 
-  function Analyze(slots, Money){
+  function Analyze(slots){
     if((slots[0].src == slots[6].src) && (slots[6].src == slots[12].src)){
       console.log("UP DIAGONAL")
       if(slots[0].src == "http://localhost:8080/Cherry.f590875b.png"){
-        
+        Money += 1000
+      }
+      else if(slots[0].src == "http://localhost:8080/Watermelon.89415fdd.png"){
+        Money += 1500
+      }
+      else if(slots[0].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
+        Money += 2000
+      }
+      else if(slots[0].src == "http://localhost:8080/Clover.d1182bae.png"){
+        Money += 3000
+      }
+      else if(slots[0].src == "http://localhost:8080/Diamond.980b154e.png"){
+        Money += 4000
+      }
+      else if(slots[0].src == "http://localhost:8080/Seven.cb961cef.png"){
+        Money += 10000
       }
     }
     if((slots[0].src == slots[1].src) && (slots[1].src == slots[2].src)){
       console.log("FIRST ROW")
+      if(slots[0].src == "http://localhost:8080/Cherry.f590875b.png"){
+        Money += 1000
+      }
+      else if(slots[0].src == "http://localhost:8080/Watermelon.89415fdd.png"){
+        Money += 1500
+      }
+      else if(slots[0].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
+        Money += 2000
+      }
+      if(slots[0].src == "http://localhost:8080/Clover.d1182bae.png"){
+        Money += 3000
+      }
+      if(slots[0].src == "http://localhost:8080/Diamond.980b154e.png"){
+        Money += 4000
+      }
+      if(slots[0].src == "http://localhost:8080/Seven.cb961cef.png"){
+        Money += 10000
+      }
     }
     if((slots[5].src == slots[6].src) && (slots[6].src == slots[7].src)){
       console.log("SECOND ROW")
+      if(slots[5].src == "http://localhost:8080/Cherry.f590875b.png"){
+        Money += 1000
+      }
+      else if(slots[5].src == "http://localhost:8080/Watermelon.89415fdd.png"){
+        Money += 1500
+      }
+      else if(slots[5].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
+        Money += 2000
+      }
+      if(slots[5].src == "http://localhost:8080/Clover.d1182bae.png"){
+        Money += 3000
+      }
+      if(slots[5].src == "http://localhost:8080/Diamond.980b154e.png"){
+        Money += 4000
+      }
+      if(slots[5].src == "http://localhost:8080/Seven.cb961cef.png"){
+        Money += 10000
+      }
     }
     if((slots[10].src == slots[11].src) && (slots[11].src == slots[12].src)){
       console.log("LAST ROW")
+      if(slots[10].src == "http://localhost:8080/Cherry.f590875b.png"){
+        Money += 1000
+      }
+      else if(slots[10].src == "http://localhost:8080/Watermelon.89415fdd.png"){
+        Money += 1500
+      }
+      else if(slots[10].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
+        Money += 2000
+      }
+      if(slots[10].src == "http://localhost:8080/Clover.d1182bae.png"){
+        Money += 3000
+      }
+      if(slots[10].src == "http://localhost:8080/Diamond.980b154e.png"){
+        Money += 4000
+      }
+      if(slots[10].src == "http://localhost:8080/Seven.cb961cef.png"){
+        Money += 10000
+      }
     }
     if((slots[10].src == slots[6].src) && (slots[6].src == slots[2].src)){
       console.log("DOWN DIAGONAL")
+      if(slots[10].src == "http://localhost:8080/Cherry.f590875b.png"){
+        Money += 1000
+      }
+      else if(slots[10].src == "http://localhost:8080/Watermelon.89415fdd.png"){
+        Money += 1500
+      }
+      else if(slots[10].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
+        Money += 2000
+      }
+      if(slots[10].src == "http://localhost:8080/Clover.d1182bae.png"){
+        Money += 3000
+      }
+      if(slots[10].src == "http://localhost:8080/Diamond.980b154e.png"){
+        Money += 4000
+      }
+      if(slots[10].src == "http://localhost:8080/Seven.cb961cef.png"){
+        Money += 10000
+      }
     }
+
+    moneyText.textContent="Money = " + Money;
+    console.log(Money)
   }
+
+  let Money = 5100
+
+  let moneyText = document.getElementById("money")
+
+  moneyText.textContent="Money = " + Money;
 
   Roll()
 
   let button = document.getElementById("playButton");
 
   button.addEventListener("click", function(){
-    Roll(Money)
+    Roll()
   })
+
+
 
   
 

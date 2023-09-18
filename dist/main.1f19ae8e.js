@@ -121,7 +121,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 'use strict';
 
 function App() {
-  var Money = 5000;
   function PickRandom(slot) {
     var RNG = Math.floor(Math.random() * 100);
 
@@ -159,7 +158,7 @@ function App() {
       console.log("ERR: number higher than 100 or lower than 0");
     }
   }
-  function Roll(Money) {
+  function Roll() {
     Money -= 100;
     var slot1 = document.getElementById("slot1");
     var slot2 = document.getElementById("slot2");
@@ -180,33 +179,111 @@ function App() {
     for (var i = 0; i < slots.length; i++) {
       PickRandom(slots[i]);
     }
-
-    //console.log(slot1.src)
-
-    Analyze(slots, Money);
+    Analyze(slots);
   }
-  function Analyze(slots, Money) {
+  function Analyze(slots) {
     if (slots[0].src == slots[6].src && slots[6].src == slots[12].src) {
       console.log("UP DIAGONAL");
-      if (slots[0].src == "http://localhost:8080/Cherry.f590875b.png") {}
+      if (slots[0].src == "http://localhost:8080/Cherry.f590875b.png") {
+        Money += 1000;
+      } else if (slots[0].src == "http://localhost:8080/Watermelon.89415fdd.png") {
+        Money += 1500;
+      } else if (slots[0].src == "http://localhost:8080/Lemon.c3d21eb1.png") {
+        Money += 2000;
+      } else if (slots[0].src == "http://localhost:8080/Clover.d1182bae.png") {
+        Money += 3000;
+      } else if (slots[0].src == "http://localhost:8080/Diamond.980b154e.png") {
+        Money += 4000;
+      } else if (slots[0].src == "http://localhost:8080/Seven.cb961cef.png") {
+        Money += 10000;
+      }
     }
     if (slots[0].src == slots[1].src && slots[1].src == slots[2].src) {
       console.log("FIRST ROW");
+      if (slots[0].src == "http://localhost:8080/Cherry.f590875b.png") {
+        Money += 1000;
+      } else if (slots[0].src == "http://localhost:8080/Watermelon.89415fdd.png") {
+        Money += 1500;
+      } else if (slots[0].src == "http://localhost:8080/Lemon.c3d21eb1.png") {
+        Money += 2000;
+      }
+      if (slots[0].src == "http://localhost:8080/Clover.d1182bae.png") {
+        Money += 3000;
+      }
+      if (slots[0].src == "http://localhost:8080/Diamond.980b154e.png") {
+        Money += 4000;
+      }
+      if (slots[0].src == "http://localhost:8080/Seven.cb961cef.png") {
+        Money += 10000;
+      }
     }
     if (slots[5].src == slots[6].src && slots[6].src == slots[7].src) {
       console.log("SECOND ROW");
+      if (slots[5].src == "http://localhost:8080/Cherry.f590875b.png") {
+        Money += 1000;
+      } else if (slots[5].src == "http://localhost:8080/Watermelon.89415fdd.png") {
+        Money += 1500;
+      } else if (slots[5].src == "http://localhost:8080/Lemon.c3d21eb1.png") {
+        Money += 2000;
+      }
+      if (slots[5].src == "http://localhost:8080/Clover.d1182bae.png") {
+        Money += 3000;
+      }
+      if (slots[5].src == "http://localhost:8080/Diamond.980b154e.png") {
+        Money += 4000;
+      }
+      if (slots[5].src == "http://localhost:8080/Seven.cb961cef.png") {
+        Money += 10000;
+      }
     }
     if (slots[10].src == slots[11].src && slots[11].src == slots[12].src) {
       console.log("LAST ROW");
+      if (slots[10].src == "http://localhost:8080/Cherry.f590875b.png") {
+        Money += 1000;
+      } else if (slots[10].src == "http://localhost:8080/Watermelon.89415fdd.png") {
+        Money += 1500;
+      } else if (slots[10].src == "http://localhost:8080/Lemon.c3d21eb1.png") {
+        Money += 2000;
+      }
+      if (slots[10].src == "http://localhost:8080/Clover.d1182bae.png") {
+        Money += 3000;
+      }
+      if (slots[10].src == "http://localhost:8080/Diamond.980b154e.png") {
+        Money += 4000;
+      }
+      if (slots[10].src == "http://localhost:8080/Seven.cb961cef.png") {
+        Money += 10000;
+      }
     }
     if (slots[10].src == slots[6].src && slots[6].src == slots[2].src) {
       console.log("DOWN DIAGONAL");
+      if (slots[10].src == "http://localhost:8080/Cherry.f590875b.png") {
+        Money += 1000;
+      } else if (slots[10].src == "http://localhost:8080/Watermelon.89415fdd.png") {
+        Money += 1500;
+      } else if (slots[10].src == "http://localhost:8080/Lemon.c3d21eb1.png") {
+        Money += 2000;
+      }
+      if (slots[10].src == "http://localhost:8080/Clover.d1182bae.png") {
+        Money += 3000;
+      }
+      if (slots[10].src == "http://localhost:8080/Diamond.980b154e.png") {
+        Money += 4000;
+      }
+      if (slots[10].src == "http://localhost:8080/Seven.cb961cef.png") {
+        Money += 10000;
+      }
     }
+    moneyText.textContent = "Money = " + Money;
+    console.log(Money);
   }
+  var Money = 5100;
+  var moneyText = document.getElementById("money");
+  moneyText.textContent = "Money = " + Money;
   Roll();
   var button = document.getElementById("playButton");
   button.addEventListener("click", function () {
-    Roll(Money);
+    Roll();
   });
 }
 App();
@@ -235,7 +312,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49367" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50602" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
