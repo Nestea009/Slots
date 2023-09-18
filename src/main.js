@@ -1,7 +1,7 @@
 'use strict';
 
 function App() {
-  let Money = 10000
+  let Money = 5000
 
   function PickRandom(slot){
     let RNG = Math.floor(Math.random() * 100)
@@ -43,7 +43,10 @@ function App() {
     }
   }
 
-  function Roll(){
+  function Roll(Money){
+
+    Money -= 100
+
     let slot1 = document.getElementById("slot1") 
     let slot2 = document.getElementById("slot2")
     let slot3 = document.getElementById("slot3")
@@ -53,35 +56,54 @@ function App() {
     let slot7 = document.getElementById("slot7")
     let slot8 = document.getElementById("slot8")
     let slot9 = document.getElementById("slot9")
+    let slot10 = document.getElementById("slot10")
+    let slot11 = document.getElementById("slot11")
+    let slot12 = document.getElementById("slot12")
+    let slot13 = document.getElementById("slot13")
+    let slot14 = document.getElementById("slot14")
+    let slot15 = document.getElementById("slot15")
 
-    let slots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9]
+    let slots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11, slot12, slot13, slot14, slot15]
 
     for(let i = 0;i < slots.length; i++){
       PickRandom(slots[i])
     }
 
-    Analyze(slots);
+    //console.log(slot1.src)
+
+    Analyze(slots, Money);
   }
 
-  function Analyze(slots){
-    if((slots[0].src == slots[4].src) && (slots[4].src == slots[8].src)){
+  function Analyze(slots, Money){
+    if((slots[0].src == slots[6].src) && (slots[6].src == slots[12].src)){
       console.log("UP DIAGONAL")
+      if(slots[0].src == "http://localhost:8080/Cherry.f590875b.png"){
+        
+      }
     }
     if((slots[0].src == slots[1].src) && (slots[1].src == slots[2].src)){
       console.log("FIRST ROW")
     }
-    if((slots[3].src == slots[4].src) && (slots[4].src == slots[5].src)){
+    if((slots[5].src == slots[6].src) && (slots[6].src == slots[7].src)){
       console.log("SECOND ROW")
     }
-    if((slots[6].src == slots[7].src) && (slots[7].src == slots[8].src)){
+    if((slots[10].src == slots[11].src) && (slots[11].src == slots[12].src)){
       console.log("LAST ROW")
     }
-    if((slots[6].src == slots[4].src) && (slots[4].src == slots[2].src)){
+    if((slots[10].src == slots[6].src) && (slots[6].src == slots[2].src)){
       console.log("DOWN DIAGONAL")
     }
   }
 
   Roll()
+
+  let button = document.getElementById("playButton");
+
+  button.addEventListener("click", function(){
+    Roll(Money)
+  })
+
+  
 
 }
 

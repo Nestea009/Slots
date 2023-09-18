@@ -121,7 +121,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 'use strict';
 
 function App() {
-  var Money = 10000;
+  var Money = 5000;
   function PickRandom(slot) {
     var RNG = Math.floor(Math.random() * 100);
 
@@ -159,7 +159,8 @@ function App() {
       console.log("ERR: number higher than 100 or lower than 0");
     }
   }
-  function Roll() {
+  function Roll(Money) {
+    Money -= 100;
     var slot1 = document.getElementById("slot1");
     var slot2 = document.getElementById("slot2");
     var slot3 = document.getElementById("slot3");
@@ -169,30 +170,44 @@ function App() {
     var slot7 = document.getElementById("slot7");
     var slot8 = document.getElementById("slot8");
     var slot9 = document.getElementById("slot9");
-    var slots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9];
+    var slot10 = document.getElementById("slot10");
+    var slot11 = document.getElementById("slot11");
+    var slot12 = document.getElementById("slot12");
+    var slot13 = document.getElementById("slot13");
+    var slot14 = document.getElementById("slot14");
+    var slot15 = document.getElementById("slot15");
+    var slots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9, slot10, slot11, slot12, slot13, slot14, slot15];
     for (var i = 0; i < slots.length; i++) {
       PickRandom(slots[i]);
     }
-    Analyze(slots);
+
+    //console.log(slot1.src)
+
+    Analyze(slots, Money);
   }
-  function Analyze(slots) {
-    if (slots[0].src == slots[4].src && slots[4].src == slots[8].src) {
+  function Analyze(slots, Money) {
+    if (slots[0].src == slots[6].src && slots[6].src == slots[12].src) {
       console.log("UP DIAGONAL");
+      if (slots[0].src == "http://localhost:8080/Cherry.f590875b.png") {}
     }
     if (slots[0].src == slots[1].src && slots[1].src == slots[2].src) {
       console.log("FIRST ROW");
     }
-    if (slots[3].src == slots[4].src && slots[4].src == slots[5].src) {
+    if (slots[5].src == slots[6].src && slots[6].src == slots[7].src) {
       console.log("SECOND ROW");
     }
-    if (slots[6].src == slots[7].src && slots[7].src == slots[8].src) {
+    if (slots[10].src == slots[11].src && slots[11].src == slots[12].src) {
       console.log("LAST ROW");
     }
-    if (slots[6].src == slots[4].src && slots[4].src == slots[2].src) {
+    if (slots[10].src == slots[6].src && slots[6].src == slots[2].src) {
       console.log("DOWN DIAGONAL");
     }
   }
   Roll();
+  var button = document.getElementById("playButton");
+  button.addEventListener("click", function () {
+    Roll(Money);
+  });
 }
 App();
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -220,7 +235,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63750" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49367" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
