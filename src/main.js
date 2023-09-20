@@ -44,7 +44,7 @@ function App() {
 
   function Roll(){
 
-    Money -= 100;
+    Money -= 500;
 
     let slot1 = document.getElementById("slot1") 
     let slot2 = document.getElementById("slot2")
@@ -102,7 +102,61 @@ function App() {
         wins += 6000
       }
     }
-    if((slots[0].src == slots[1].src) && (slots[1].src == slots[2].src)){
+    if((slots[10].src == slots[6].src) && (slots[6].src == slots[2].src)){
+      console.log("DOWN DIAGONAL")
+      if(slots[10].src == "http://localhost:8080/Cherry.f590875b.png"){
+        Money += 1000
+        wins += 1000
+      }
+      else if(slots[10].src == "http://localhost:8080/Watermelon.89415fdd.png"){
+        Money += 1500
+        wins += 1500
+      }
+      else if(slots[10].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
+        Money += 2000
+        wins += 2000
+      }
+      else if(slots[10].src == "http://localhost:8080/Clover.d1182bae.png"){
+        Money += 3000
+        wins += 3000
+      }
+      else if(slots[10].src == "http://localhost:8080/Diamond.980b154e.png"){
+        Money += 4000
+        wins += 4000
+      }
+      else if(slots[10].src == "http://localhost:8080/Seven.cb961cef.png"){
+        Money += 6000
+        wins += 6000
+      }
+    }
+    if((slots[0].src == slots[1].src) && (slots[1].src == slots[2].src) && (slots[1].src == slots[3].src)){
+      console.log("4 FIRST ROW")
+      if(slots[0].src == "http://localhost:8080/Cherry.f590875b.png"){
+        Money += 5000
+        wins += 5000
+      }
+      else if(slots[0].src == "http://localhost:8080/Watermelon.89415fdd.png"){
+        Money += 7500
+        wins += 7500
+      }
+      else if(slots[0].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
+        Money += 10000
+        wins += 10000
+      }
+      else if(slots[0].src == "http://localhost:8080/Clover.d1182bae.png"){
+        Money += 15000
+        wins += 15000
+      }
+      else if(slots[0].src == "http://localhost:8080/Diamond.980b154e.png"){
+        Money += 20000
+        wins += 20000
+      }
+      else if(slots[0].src == "http://localhost:8080/Seven.cb961cef.png"){
+        Money += 30000
+        wins += 30000
+      }
+    }
+    else if((slots[0].src == slots[1].src) && (slots[1].src == slots[2].src)){
       console.log("FIRST ROW")
       if(slots[0].src == "http://localhost:8080/Cherry.f590875b.png"){
         Money += 1000
@@ -129,7 +183,34 @@ function App() {
         wins += 6000
       }
     }
-    if((slots[5].src == slots[6].src) && (slots[6].src == slots[7].src)){
+    if((slots[5].src == slots[6].src) && (slots[6].src == slots[7].src) && (slots[7].src == slots[8].src)){
+      console.log("4 SECOND ROW")
+      if(slots[5].src == "http://localhost:8080/Cherry.f590875b.png"){
+        Money += 5000
+        wins += 5000
+      }
+      else if(slots[5].src == "http://localhost:8080/Watermelon.89415fdd.png"){
+        Money += 7500
+        wins += 7500
+      }
+      else if(slots[5].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
+        Money += 10000
+        wins += 10000
+      }
+      else if(slots[5].src == "http://localhost:8080/Clover.d1182bae.png"){
+        Money += 15000
+        wins += 15000
+      }
+      else if(slots[5].src == "http://localhost:8080/Diamond.980b154e.png"){
+        Money += 20000
+        wins += 20000
+      }
+      else if(slots[5].src == "http://localhost:8080/Seven.cb961cef.png"){
+        Money += 30000
+        wins += 30000
+      }
+    }
+    else if((slots[5].src == slots[6].src) && (slots[6].src == slots[7].src)){
       console.log("SECOND ROW")
       if(slots[5].src == "http://localhost:8080/Cherry.f590875b.png"){
         Money += 1000
@@ -156,35 +237,35 @@ function App() {
         wins += 6000
       }
     }
-    if((slots[10].src == slots[11].src) && (slots[11].src == slots[12].src)){
-      console.log("LAST ROW")
+    if((slots[10].src == slots[11].src) && (slots[11].src == slots[12].src) && (slots[12].src == slots[13].src)){
+      console.log("4 THIRD ROW")
       if(slots[10].src == "http://localhost:8080/Cherry.f590875b.png"){
-        Money += 1000
-        wins += 1000
+        Money += 5000
+        wins += 5000
       }
       else if(slots[10].src == "http://localhost:8080/Watermelon.89415fdd.png"){
-        Money += 1500
-        wins += 1500
+        Money += 7500
+        wins += 7500
       }
       else if(slots[10].src == "http://localhost:8080/Lemon.c3d21eb1.png"){
-        Money += 2000
-        wins += 2000
+        Money += 10000
+        wins += 10000
       }
       else if(slots[10].src == "http://localhost:8080/Clover.d1182bae.png"){
-        Money += 3000
-        wins += 3000
+        Money += 15000
+        wins += 15000
       }
       else if(slots[10].src == "http://localhost:8080/Diamond.980b154e.png"){
-        Money += 4000
-        wins += 4000
+        Money += 20000
+        wins += 20000
       }
       else if(slots[10].src == "http://localhost:8080/Seven.cb961cef.png"){
-        Money += 6000
-        wins += 6000
+        Money += 30000
+        wins += 30000
       }
     }
-    if((slots[10].src == slots[6].src) && (slots[6].src == slots[2].src)){
-      console.log("DOWN DIAGONAL")
+    else if((slots[10].src == slots[11].src) && (slots[11].src == slots[12].src)){
+      console.log("LAST ROW")
       if(slots[10].src == "http://localhost:8080/Cherry.f590875b.png"){
         Money += 1000
         wins += 1000
